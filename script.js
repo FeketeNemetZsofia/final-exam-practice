@@ -1,27 +1,12 @@
-const str = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus nobis odit, perferendis voluptates vero quas nisi doloribus ducimus et! Odit officiis deleniti in autem enim eius nihil rerum animi ducimus."
+console.log(cars)
 
-const decodeText = (text)=>{
-    const array = text.split(" ")
-    let newArray = []
+const rootElement = document.querySelector("#root")
 
-    array.forEach((word) => {
-    let wordLength = word.length
-    console.log(wordLength)
-    if (word.match(/[!,.]/ig)){
-        wordLength--
-    }
-    if(wordLength % 2 === 0){
-        newArray.push(word.split("").reverse().join(""))
-        console.log(newArray)
-    }
-    if(wordLength % 2 === 1){
-        newArray.push(word.toUpperCase())
-    }
-
-})
-
-return newArray.join(" ")
-
-}
-
-console.log(decodeText(str))
+cars.forEach((car, index) => rootElement.insertAdjacentHTML("beforeend", `
+	<div class="car">
+		<h2>${car.type}</h2>
+		<p>${car.runTime} km</p>
+		<div class="price">${car.price}.00 HUF</div>
+		<div class="number">${index + 1} </div>
+	</div>
+`))
